@@ -13,19 +13,14 @@
       <aside
         class="fixed top-0 left-0 h-full bg-green-900 text-white transition-all duration-300 z-50"
         :class="[
-          // width behavior
           mobileOpen ? 'w-56' : expanded ? 'w-56' : 'w-16',
-
-          // slide behavior
-          mobileOpen
-            ? 'translate-x-0'
-            : '-translate-x-full md:translate-x-0'
+          mobileOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         ]"
       >
         <!-- SIDEBAR HEADER -->
         <div class="flex items-center justify-between h-16 border-b border-green-700 px-4"> 
           <span v-if="expanded || mobileOpen" class="text-lg font-bold whitespace-nowrap">
-            Dean Panel
+            Teachers Panel
           </span>
 
           <!-- Desktop collapse toggle -->
@@ -82,93 +77,6 @@
               </router-link>
             </li>
 
-            <!-- TEACHERS DROPDOWN -->
-            <li>
-              <button
-                @click="toggleDropdown('teachers')"
-                class="flex items-center justify-between w-full py-3 px-4 hover:bg-green-800 transition"
-              >
-                <div class="flex items-center gap-3">
-                  <Users class="w-6 h-6" />
-                  <span v-if="expanded || mobileOpen">Teachers</span>
-                </div>
-
-                <svg
-                  v-if="expanded || mobileOpen"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-4 h-4 transform transition-transform duration-200"
-                  :class="{ 'rotate-90': dropdowns.teachers }"
-                  fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
-
-              <transition name="dropdown">
-                <ul
-                  v-show="dropdowns.teachers && (expanded || mobileOpen)"
-                  class="pl-12 bg-green-800/50 text-sm text-gray-200"
-                >
-                  <li>
-                    <router-link class="block py-2 hover:text-white" to="/dean/list_teachers" @click="mobileOpen = false">
-                      Teachers List
-                    </router-link>
-                  </li>
-                  <li>
-                    <router-link class="block py-2 hover:text-white" to="/dean/assign_teacher" @click="mobileOpen = false">
-                      Assign Teacher
-                    </router-link>
-                  </li>
-                  <!-- <li>
-                    <router-link class="block py-2 hover:text-white" to="/dean/teachers/activate" @click="mobileOpen = false">
-                      Activate Teacher
-                    </router-link>
-                  </li> -->
-                </ul>
-              </transition>
-            </li>
-
-            <!-- COURSES DROPDOWN -->
-            <li>
-              <button
-                @click="toggleDropdown('courses')"
-                class="flex items-center justify-between w-full py-3 px-4 hover:bg-green-800 transition"
-              >
-                <div class="flex items-center gap-3">
-                  <BookOpen class="w-6 h-6" />
-                  <span v-if="expanded || mobileOpen">Courses</span>
-                </div>
-
-                <svg
-                  v-if="expanded || mobileOpen"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-4 h-4 transform transition-transform duration-200"
-                  :class="{ 'rotate-90': dropdowns.courses }"
-                  fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
-
-              <transition name="dropdown">
-                <ul
-                  v-show="dropdowns.courses && (expanded || mobileOpen)"
-                  class="pl-12 bg-green-800/50 text-sm text-gray-200"
-                >
-                  <li>
-                    <router-link class="block py-2 hover:text-white" to="/dean/list_courses" @click="mobileOpen = false">
-                      List of Courses
-                    </router-link>
-                  </li>
-                  
-                </ul>
-              </transition>
-            </li>
-
             <!-- SUBJECTS DROPDOWN -->
             <li>
               <button
@@ -199,15 +107,60 @@
                   class="pl-12 bg-green-800/50 text-sm text-gray-200"
                 >
                   <li>
-                    <router-link class="block py-2 hover:text-white" to="/dean/list_subjects" @click="mobileOpen = false">
-                      List of Subjects
+                    <router-link class="block py-2 hover:text-white" to="/teacher/list_subjects" @click="mobileOpen = false">
+                      My Subjects
                     </router-link>
                   </li>
-                  <!-- <li>
-                    <router-link class="block py-2 hover:text-white" to="/dean/assign_subject" @click="mobileOpen = false">
-                      Assign Subject
+
+                  <li>
+                    <router-link class="block py-2 hover:text-white" to="/teacher/subject_students" @click="mobileOpen = false">
+                      Subject Students
                     </router-link>
-                  </li> -->
+                  </li>
+                </ul>
+              </transition>
+            </li>
+
+            <!-- STUDENTS + GRADES DROPDOWN -->
+            <li>
+              <button
+                @click="toggleDropdown('students')"
+                class="flex items-center justify-between w-full py-3 px-4 hover:bg-green-800 transition"
+              >
+                <div class="flex items-center gap-3">
+                  <Users class="w-6 h-6" />
+                  <span v-if="expanded || mobileOpen">Students</span>
+                </div>
+
+                <svg
+                  v-if="expanded || mobileOpen"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 transform transition-transform duration-200"
+                  :class="{ 'rotate-90': dropdowns.students }"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+
+              <transition name="dropdown">
+                <ul
+                  v-show="dropdowns.students && (expanded || mobileOpen)"
+                  class="pl-12 bg-green-800/50 text-sm text-gray-200"
+                >
+                  <li>
+                    <router-link class="block py-2 hover:text-white" to="/teacher/list_students" @click="mobileOpen = false">
+                      Students List
+                    </router-link>
+                  </li>
+
+                  <li>
+                    <router-link class="block py-2 hover:text-white" to="/teacher/add_grades" @click="mobileOpen = false">
+                      Add / Edit Grades
+                    </router-link>
+                  </li>
                 </ul>
               </transition>
             </li>
@@ -222,14 +175,12 @@
       class="flex-1 transition-all duration-300 ml-0 md:ml-16"
       :class="{ 'md:ml-56': expanded }"
     >
-      <!-- MOBILE OPEN BUTTON -->
       <button
-		@click="mobileOpen = true"
-		class="p-2 px-3 md:hidden mt-3 ml-3 bg-gray-100 text-gray-600 rounded-lg  absolute right-0 mr-4 z-50"
-		aria-label="Open menu"
-		>
-		☰
-		</button>
+        @click="mobileOpen = true"
+        class="p-2 px-3 md:hidden mt-3 ml-3 bg-gray-100 text-gray-600 rounded-lg absolute right-0 mr-4 z-50"
+      >
+        ☰
+      </button>
 
       <main class="">
         <slot />
@@ -238,7 +189,6 @@
 
   </div>
 </template>
-
 <script setup>
 import { ref } from "vue";
 import { Home, BookOpen, Users, LayoutDashboard } from "lucide-vue-next";
@@ -247,8 +197,8 @@ const expanded = ref(true);
 const mobileOpen = ref(false);
 
 const dropdowns = ref({
-  teachers: false,
-  courses: false,
+  subjects: false,
+  students: false,
 });
 
 const toggleDropdown = (key) => {
@@ -256,7 +206,7 @@ const toggleDropdown = (key) => {
 };
 
 const staticMenu = [
-  { name: "Dashboard", icon: LayoutDashboard, route: "/dean/dashboard" },
-  { name: "Home", icon: Home, route: "/dean/home" },
+  { name: "Dashboard", icon: LayoutDashboard, route: "/teacher/dashboard" },
+  { name: "Home", icon: Home, route: "/teacher/home" },
 ];
 </script>
