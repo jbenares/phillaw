@@ -3,17 +3,14 @@
          <header
             class="fixed top-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-30 h-16 flex items-center justify-between px-6"
             >
-            <h1 class="text-lg font-semibold text-gray-800">Manage Grades</h1>
+            <h1 class="text-lg font-semibold text-[#7030A0]">Manage Grades</h1>
             </header>
         <div class="pt-20 p-6">
-            <!-- Page Header -->
-           
-
             <!-- Search Panel -->
             <div
             class="bg-white shadow rounded-xl p-6 mb-8 "
             >
-            <h2 class="text-lg font-semibold text-green-700 mb-4">
+            <h2 class="text-lg font-semibold text-[#7030A0] mb-4">
                 Search Class
             </h2>
 
@@ -22,7 +19,7 @@
                 <div>
                 <label class="block text-sm font-medium mb-1">Course</label>
                 <select v-model="selectedCourse"
-                        class="w-full p-2 border rounded-lg focus:ring-green-600 focus:border-green-600">
+                        class="w-full p-2 border rounded-lg focus:ring-[#7030A0] focus:border-[#7030A0]">
                     <option value="">Select Course</option>
                     <option v-for="course in courses" :key="course" :value="course">{{ course }}</option>
                 </select>
@@ -32,7 +29,7 @@
                 <div>
                 <label class="block text-sm font-medium mb-1">Section</label>
                 <select v-model="selectedSection"
-                        class="w-full p-2 border rounded-lg focus:ring-green-600 focus:border-green-600">
+                        class="w-full p-2 border rounded-lg focus:ring-[#7030A0] focus:border-[#7030A0]">
                     <option value="">Select Section</option>
                     <option v-for="section in sections" :key="section" :value="section">{{ section }}</option>
                 </select>
@@ -42,7 +39,7 @@
                 <div class="flex items-end">
                 <button
                     @click="searchStudents"
-                    class="w-full bg-green-700 text-white py-2 rounded-lg hover:bg-green-800 transition"
+                    class="w-full bg-[#7030A0] text-white py-2 rounded-lg hover:bg-[#5a267f] transition"
                 >
                     Search
                 </button>
@@ -53,15 +50,15 @@
             <!-- Students Table -->
             <div
             v-if="students.length"
-            class="bg-white shadow-lg  rounded-xl p-4"
+            class="bg-white shadow-lg rounded-xl p-4"
             >
-            <h2 class="text-lg font-semibold text-green-700 mb-4">
+            <h2 class="text-lg font-semibold text-[#7030A0] mb-4">
                 Students List
             </h2>
 
             <div class="overflow-x-auto">
                 <table class="w-full border-collapse rounded-xl overflow-hidden">
-                <thead class="bg-green-700 text-white">
+                <thead class="bg-[#7030A0] text-white">
                     <tr>
                     <th class="p-3 text-left">Student ID</th>
                     <th class="p-3 text-left">Name</th>
@@ -75,7 +72,7 @@
                     <tr
                     v-for="student in students"
                     :key="student.id"
-                    class="border-b hover:bg-green-50 transition"
+                    class="border-b hover:bg-[#f3e8ff] transition"
                     >
                     <td class="p-3">{{ student.id }}</td>
                     <td class="p-3">{{ student.name }}</td>
@@ -84,7 +81,7 @@
                     <td class="p-3 text-center">
                         <button
                         @click="openModal(student)"
-                        class="bg-green-600 text-white px-3 py-1 rounded-lg hover:bg-green-700 text-sm"
+                        class="bg-[#7030A0] text-white px-3 py-1 rounded-lg hover:bg-[#5a267f] text-sm"
                         >
                         Add / Edit Grade
                         </button>
@@ -100,8 +97,8 @@
             v-if="showModal"
             class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
             >
-            <div class="bg-white w-full max-w-md p-6 rounded-xl shadow-xl border border-green-300/40">
-                <h2 class="text-xl font-semibold text-green-700 mb-4">
+            <div class="bg-white w-full max-w-md p-6 rounded-xl shadow-xl border border-[#7030A0]/40">
+                <h2 class="text-xl font-semibold text-[#7030A0] mb-4">
                 Add / Edit Grade
                 </h2>
 
@@ -144,7 +141,7 @@
 
                 <button
                     @click="saveGrade"
-                    class="px-4 py-2 bg-green-700 text-white rounded-lg hover:bg-green-800"
+                    class="px-4 py-2 bg-[#7030A0] text-white rounded-lg hover:bg-[#5a267f]"
                 >
                     Save
                 </button>
@@ -154,6 +151,7 @@
         </div>
     </navigation>
 </template>
+
 
 <script setup>
 import { ref, reactive, computed } from "vue";

@@ -11,19 +11,14 @@
     <!-- SIDEBAR -->
     <transition name="slide-sidebar">
       <aside
-        class="fixed top-0 left-0 h-full bg-green-900 text-white transition-all duration-300 z-50"
+        class="fixed top-0 left-0 h-full bg-[#7030A0] text-white transition-all duration-300 z-50"
         :class="[
-          // width behavior
           mobileOpen ? 'w-56' : expanded ? 'w-56' : 'w-16',
-
-          // slide behavior
-          mobileOpen
-            ? 'translate-x-0'
-            : '-translate-x-full md:translate-x-0'
+          mobileOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         ]"
       >
         <!-- SIDEBAR HEADER -->
-        <div class="flex items-center justify-between h-16 border-b border-green-700 px-4"> 
+        <div class="flex items-center justify-between h-16 border-b border-[#7030A0] px-4"> 
           <span v-if="expanded || mobileOpen" class="text-lg font-bold whitespace-nowrap">
             Dean Panel
           </span>
@@ -31,7 +26,7 @@
           <!-- Desktop collapse toggle -->
           <button
             @click="expanded = !expanded"
-            class="p-2 rounded hover:bg-green-800 transition hidden md:block"
+            class="p-2 rounded hover:bg-[#5a267f] transition hidden md:block"
             title="Toggle sidebar"
           >
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -55,7 +50,7 @@
           <!-- Mobile close button -->
           <button
             @click="mobileOpen = false"
-            class="p-2 rounded hover:bg-green-800 transition md:hidden"
+            class="p-2 rounded hover:bg-[#5a267f] transition md:hidden"
           >
             ✕
           </button>
@@ -66,19 +61,14 @@
           <ul>
 
             <!-- STATIC ITEMS -->
-            <li
-              v-for="item in staticMenu"
-              :key="item.name"
-            >
+            <li v-for="item in staticMenu" :key="item.name">
               <router-link
                 :to="item.route"
-                class="flex items-center gap-3 py-3 px-4 hover:bg-green-800 transition-colors"
+                class="flex items-center gap-3 py-3 px-4 hover:bg-[#5a267f] transition-colors"
                 @click="mobileOpen = false"
               >
                 <component :is="item.icon" class="w-6 h-6" />
-                <span v-if="expanded || mobileOpen" class="whitespace-nowrap">
-                  {{ item.name }}
-                </span>
+                <span v-if="expanded || mobileOpen" class="whitespace-nowrap">{{ item.name }}</span>
               </router-link>
             </li>
 
@@ -86,7 +76,7 @@
             <li>
               <button
                 @click="toggleDropdown('teachers')"
-                class="flex items-center justify-between w-full py-3 px-4 hover:bg-green-800 transition"
+                class="flex items-center justify-between w-full py-3 px-4 hover:bg-[#5a267f] transition"
               >
                 <div class="flex items-center gap-3">
                   <Users class="w-6 h-6" />
@@ -109,7 +99,7 @@
               <transition name="dropdown">
                 <ul
                   v-show="dropdowns.teachers && (expanded || mobileOpen)"
-                  class="pl-12 bg-green-800/50 text-sm text-gray-200"
+                  class="pl-12 bg-[#5a267f]/50 text-sm text-gray-200"
                 >
                   <li>
                     <router-link class="block py-2 hover:text-white" to="/dean/list_teachers" @click="mobileOpen = false">
@@ -121,11 +111,6 @@
                       Assign Teacher
                     </router-link>
                   </li>
-                  <!-- <li>
-                    <router-link class="block py-2 hover:text-white" to="/dean/teachers/activate" @click="mobileOpen = false">
-                      Activate Teacher
-                    </router-link>
-                  </li> -->
                 </ul>
               </transition>
             </li>
@@ -134,7 +119,7 @@
             <li>
               <button
                 @click="toggleDropdown('courses')"
-                class="flex items-center justify-between w-full py-3 px-4 hover:bg-green-800 transition"
+                class="flex items-center justify-between w-full py-3 px-4 hover:bg-[#5a267f] transition"
               >
                 <div class="flex items-center gap-3">
                   <BookOpen class="w-6 h-6" />
@@ -157,14 +142,13 @@
               <transition name="dropdown">
                 <ul
                   v-show="dropdowns.courses && (expanded || mobileOpen)"
-                  class="pl-12 bg-green-800/50 text-sm text-gray-200"
+                  class="pl-12 bg-[#5a267f]/50 text-sm text-gray-200"
                 >
                   <li>
                     <router-link class="block py-2 hover:text-white" to="/dean/list_courses" @click="mobileOpen = false">
                       List of Courses
                     </router-link>
                   </li>
-                  
                 </ul>
               </transition>
             </li>
@@ -173,7 +157,7 @@
             <li>
               <button
                 @click="toggleDropdown('subjects')"
-                class="flex items-center justify-between w-full py-3 px-4 hover:bg-green-800 transition"
+                class="flex items-center justify-between w-full py-3 px-4 hover:bg-[#5a267f] transition"
               >
                 <div class="flex items-center gap-3">
                   <BookOpen class="w-6 h-6" />
@@ -196,18 +180,13 @@
               <transition name="dropdown">
                 <ul
                   v-show="dropdowns.subjects && (expanded || mobileOpen)"
-                  class="pl-12 bg-green-800/50 text-sm text-gray-200"
+                  class="pl-12 bg-[#5a267f]/50 text-sm text-gray-200"
                 >
                   <li>
                     <router-link class="block py-2 hover:text-white" to="/dean/list_subjects" @click="mobileOpen = false">
                       List of Subjects
                     </router-link>
                   </li>
-                  <!-- <li>
-                    <router-link class="block py-2 hover:text-white" to="/dean/assign_subject" @click="mobileOpen = false">
-                      Assign Subject
-                    </router-link>
-                  </li> -->
                 </ul>
               </transition>
             </li>
@@ -224,12 +203,12 @@
     >
       <!-- MOBILE OPEN BUTTON -->
       <button
-		@click="mobileOpen = true"
-		class="p-2 px-3 md:hidden mt-3 ml-3 bg-gray-100 text-gray-600 rounded-lg  absolute right-0 mr-4 z-50"
-		aria-label="Open menu"
-		>
-		☰
-		</button>
+        @click="mobileOpen = true"
+        class="p-2 px-3 md:hidden mt-3 ml-3 bg-gray-100 text-gray-600 rounded-lg absolute right-0 mr-4 z-50"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
 
       <main class="">
         <slot />
@@ -249,6 +228,7 @@ const mobileOpen = ref(false);
 const dropdowns = ref({
   teachers: false,
   courses: false,
+  subjects: false,
 });
 
 const toggleDropdown = (key) => {

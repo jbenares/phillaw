@@ -4,7 +4,7 @@
 		<header
 			class="fixed top-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-30 h-16 flex items-center justify-between px-6"
 		>
-			<h1 class="text-lg font-semibold text-green-700">Teacher Dashboard</h1>
+			<h1 class="text-lg font-semibold text-gray-700">Teacher Dashboard</h1>
 
 			<button
 				@click="mobileOpen = !mobileOpen"
@@ -24,17 +24,17 @@
 
 				<!-- Overview Cards -->
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-					<div class="p-6 rounded-xl bg-green-600 text-white shadow">
+					<div class="p-6 rounded-xl bg-[#7030A0] text-white shadow">
 						<h3 class="text-xl font-semibold">My Courses</h3>
 						<p class="text-3xl font-bold mt-1">5</p>
 					</div>
 
-					<div class="p-6 rounded-xl bg-green-700 text-white shadow">
+					<div class="p-6 rounded-xl bg-[#5a267f] text-white shadow">
 						<h3 class="text-xl font-semibold">My Students</h3>
 						<p class="text-3xl font-bold mt-1">128</p>
 					</div>
 
-					<div class="p-6 rounded-xl bg-green-800 text-white shadow">
+					<div class="p-6 rounded-xl bg-[#4a1f65] text-white shadow">
 						<h3 class="text-xl font-semibold">Pending Grades</h3>
 						<p class="text-3xl font-bold mt-1">14</p>
 					</div>
@@ -42,14 +42,14 @@
 
 				<!-- Quick Actions -->
 				<div class="mb-8">
-					<h2 class="text-xl font-bold text-green-700 mb-3">Quick Actions</h2>
+					<h2 class="text-xl font-bold text-gray-700 mb-3">Quick Actions</h2>
 
 					<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 						<button
 							@click="goTo('subjects')"
 							class="p-4 bg-white border rounded-xl shadow hover:shadow-lg transition"
 						>
-							<h3 class="font-semibold text-green-700">View Subjects</h3>
+							<h3 class="font-semibold text-gray-700">View Subjects</h3>
 							<p class="text-sm text-gray-600">See subjects you are handling</p>
 						</button>
 
@@ -57,7 +57,7 @@
 							@click="goTo('students')"
 							class="p-4 bg-white border rounded-xl shadow hover:shadow-lg transition"
 						>
-							<h3 class="font-semibold text-green-700">Students List</h3>
+							<h3 class="font-semibold text-gray-700">Students List</h3>
 							<p class="text-sm text-gray-600">View students under your subjects</p>
 						</button>
 
@@ -65,7 +65,7 @@
 							@click="goTo('grades')"
 							class="p-4 bg-white border rounded-xl shadow hover:shadow-lg transition"
 						>
-							<h3 class="font-semibold text-green-700">Add / Edit Grades</h3>
+							<h3 class="font-semibold text-gray-700">Add / Edit Grades</h3>
 							<p class="text-sm text-gray-600">Record or update student grades</p>
 						</button>
 					</div>
@@ -73,7 +73,7 @@
 
 				<!-- Recent Activities -->
 				<div>
-					<h2 class="text-xl font-bold text-green-700 mb-3">Recent Activity</h2>
+					<h2 class="text-xl font-bold text-gray-700 mb-3">Recent Activity</h2>
 
 					<div class="bg-white rounded-xl shadow border p-4">
 						<ul class="space-y-3 text-gray-700">

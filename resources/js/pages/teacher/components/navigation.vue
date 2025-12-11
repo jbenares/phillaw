@@ -11,14 +11,14 @@
     <!-- SIDEBAR -->
     <transition name="slide-sidebar">
       <aside
-        class="fixed top-0 left-0 h-full bg-green-900 text-white transition-all duration-300 z-50"
+        class="fixed top-0 left-0 h-full bg-[#7030A0] text-white transition-all duration-300 z-50"
         :class="[
           mobileOpen ? 'w-56' : expanded ? 'w-56' : 'w-16',
           mobileOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         ]"
       >
         <!-- SIDEBAR HEADER -->
-        <div class="flex items-center justify-between h-16 border-b border-green-700 px-4"> 
+        <div class="flex items-center justify-between h-16 border-b border-[#7030A0] px-4"> 
           <span v-if="expanded || mobileOpen" class="text-lg font-bold whitespace-nowrap">
             Teachers Panel
           </span>
@@ -26,7 +26,7 @@
           <!-- Desktop collapse toggle -->
           <button
             @click="expanded = !expanded"
-            class="p-2 rounded hover:bg-green-800 transition hidden md:block"
+            class="p-2 rounded hover:bg-[#5a267f] transition hidden md:block"
             title="Toggle sidebar"
           >
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -50,7 +50,7 @@
           <!-- Mobile close button -->
           <button
             @click="mobileOpen = false"
-            class="p-2 rounded hover:bg-green-800 transition md:hidden"
+            class="p-2 rounded hover:bg-[#5a267f] transition md:hidden"
           >
             ✕
           </button>
@@ -67,7 +67,7 @@
             >
               <router-link
                 :to="item.route"
-                class="flex items-center gap-3 py-3 px-4 hover:bg-green-800 transition-colors"
+                class="flex items-center gap-3 py-3 px-4 hover:bg-[#5a267f] transition-colors"
                 @click="mobileOpen = false"
               >
                 <component :is="item.icon" class="w-6 h-6" />
@@ -81,7 +81,7 @@
             <li>
               <button
                 @click="toggleDropdown('subjects')"
-                class="flex items-center justify-between w-full py-3 px-4 hover:bg-green-800 transition"
+                class="flex items-center justify-between w-full py-3 px-4 hover:bg-[#5a267f] transition"
               >
                 <div class="flex items-center gap-3">
                   <BookOpen class="w-6 h-6" />
@@ -104,7 +104,7 @@
               <transition name="dropdown">
                 <ul
                   v-show="dropdowns.subjects && (expanded || mobileOpen)"
-                  class="pl-12 bg-green-800/50 text-sm text-gray-200"
+                  class="pl-12 bg-[#5a267f]/50 text-sm text-gray-200"
                 >
                   <li>
                     <router-link class="block py-2 hover:text-white" to="/teacher/list_subjects" @click="mobileOpen = false">
@@ -125,7 +125,7 @@
             <li>
               <button
                 @click="toggleDropdown('students')"
-                class="flex items-center justify-between w-full py-3 px-4 hover:bg-green-800 transition"
+                class="flex items-center justify-between w-full py-3 px-4 hover:bg-[#5a267f] transition"
               >
                 <div class="flex items-center gap-3">
                   <Users class="w-6 h-6" />
@@ -148,7 +148,7 @@
               <transition name="dropdown">
                 <ul
                   v-show="dropdowns.students && (expanded || mobileOpen)"
-                  class="pl-12 bg-green-800/50 text-sm text-gray-200"
+                  class="pl-12 bg-[#5a267f]/50 text-sm text-gray-200"
                 >
                   <li>
                     <router-link class="block py-2 hover:text-white" to="/teacher/list_students" @click="mobileOpen = false">
@@ -189,6 +189,7 @@
 
   </div>
 </template>
+
 <script setup>
 import { ref } from "vue";
 import { Home, BookOpen, Users, LayoutDashboard } from "lucide-vue-next";
