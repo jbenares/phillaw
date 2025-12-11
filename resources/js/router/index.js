@@ -11,6 +11,8 @@ import assignTeacher from '../pages/dean/assign_teacher.vue'
 import teacher_dash from '../pages/teacher/dashboard.vue'
 import listStudent from '../pages/teacher/list_students.vue'
 import addGrades from '../pages/teacher/add_grades.vue'
+import listSubjectTeacher from '../pages/teacher/list_subjects.vue'
+import studentsEnrolled from '../pages/teacher/students_enrolled.vue'
 
 
 
@@ -46,6 +48,14 @@ const routes = [
     {
         path:'/teacher/list_students',
         component: listStudent,
+    },
+    {
+        path:'/teacher/list_subjects',
+        component: listSubjectTeacher,
+    },
+    {
+        path:'/teacher/students_enrolled',
+        component: studentsEnrolled,
     },
     {
         path:'/teacher/add_grades',

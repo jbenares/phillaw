@@ -113,7 +113,7 @@
                   </li>
 
                   <li>
-                    <router-link class="block py-2 hover:text-white" to="/teacher/subject_students" @click="mobileOpen = false">
+                    <router-link class="block py-2 hover:text-white" to="/teacher/students_enrolled" @click="mobileOpen = false">
                       Subject Students
                     </router-link>
                   </li>
